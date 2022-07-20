@@ -6,8 +6,10 @@ const MyTodoList = () => {
 	const [todoName, setTodoName] = useState('')
 
 	function AddToDoList() {
-		setTodos([...todos, { task: todoName, id: Math.floor(Math.random() * 100), complited: false }])
-		setTodoName('');
+		if (todoName !== '') {
+			setTodos([...todos, { task: todoName, id: Math.floor(Math.random() * 100), complited: false }])
+			setTodoName('');
+		}
 	}
 
 	function updateTodoName(e) {
