@@ -1,0 +1,50 @@
+.statusFalse {
+  background-color: grey;
+}
+
+.statusTrue {
+  background-color: orange;
+}
+
+.list {
+  padding: 0;
+}
+
+.list > li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.container {
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.buttonToChangeStatus,
+.buttonForDelete {
+  display: block;
+  border: none;
+  background-color: aqua;
+  border-radius: 6px;
+  color: brown;
+}
+
+.buttonForDelete {
+  background-color: bisque;
+  color: firebrick;
+  margin-right: 5px;
+}
+
+.row {
+  display: flex;
+}
+
+.buttonToAdd {
+  border: none;
+  border-radius: 6px;
+  padding: 7px;
+  margin-left: 5px;
+  background-color: cadetblue;
+  color: black;
+}
