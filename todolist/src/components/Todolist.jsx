@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import Todos from './mytodos';
+import Todos from './Todos';
+import UserList from './UserList'
+import UserForm from './UserForm';
 
-const MyTodoList = () => {
+const TodoList = () => {
 	const [todos, setTodos] = useState([...Todos])
 	const [todoName, setTodoName] = useState('')
 
-	function AddToDoList() {
+	function addToDoList() {
 		if (todoName !== '') {
 			setTodos([...todos, { task: todoName, id: Math.floor(Math.random() * 100), complited: false }])
 			setTodoName('');
@@ -38,19 +40,10 @@ const MyTodoList = () => {
 
 	return (
 		<div className='container'>
-			<input type="text" value={todoName} onChange={(e) => updateTodoName(e)} />
-			<button className='buttonToAdd' onClick={() => AddToDoList()}>Add Todo</button>
-			<ul className='list'>
-				{
-					todos.map((todo) => {
-						return <li key={todo.id} className={todo.complited ? 'statusTrue' : 'statusFalse'}>
-							{todo.task} <div className='row'><button className='buttonForDelete' onClick={() => deleteElement(todo.id)}>DELETE</button>
-								< button className='buttonToChangeStatus' onClick={() => updateStatus(todo.id)}>changeStatus</button></div></li>
-					})
-				}
-			</ul >
+			<UserForm todoName={todoName} addTaskInTodo = {addToDoList} updateState = {updateTodoName}></UserForm>
+	<UserList todos={todos} onDelete={deleteElement} onChangeStatus ={updateStatus}></UserList>
 		</div >
 	)
 }
 
-export default MyTodoList
+export default TodoList
